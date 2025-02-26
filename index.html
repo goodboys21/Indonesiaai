@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GatotkacAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>GatotkacAI</h1>
+        <p>Portal Kecerdasan Buatan Nusantara</p>
+    </header>
+
+    <main>
+        <div id="intro">
+            <img src="garuda.png" alt="Garuda" class="logo">
+            <img src="kominfo.png" alt="Kominfo" class="logo">
+            <div class="examples">
+                <button class="question" onclick="setPrompt('Jelaskan makna dibuatnya Pancasila!')">"Jelaskan makna dibuatnya Pancasila!"</button>
+                <button class="question" onclick="setPrompt('Apa saja bentuk kerja sama Indonesia-China?')">"Apa saja bentuk kerja sama Indonesia-China?"</button>
+                <button class="question" onclick="setPrompt('Rincikan perhitungan pajak SPT tahunan!')">"Rincikan perhitungan pajak SPT tahunan!"</button>
+            </div>
+        </div>
+
+        <div id="chat-container">
+            <div id="chatbox"></div>
+            <div id="input-container">
+                <input type="text" id="userInput" placeholder="Tulis pertanyaan...">
+                <button id="sendBtn" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>GatotkacAI versi 0.1</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
