@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to bottom, #D32F2F, #FFD54F);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 20px;
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    width: 80px;
+    margin: 10px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.examples {
+    margin: 20px;
+}
+
+.question {
+    background: #FFEB3B;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.question:hover {
+    background: #FFC107;
+}
+
+#chat-container {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#chatbox {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#userInput {
+    width: 70%;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+#sendBtn {
+    background: #FF5722;
+    border: none;
+    padding: 10px;
+    margin-left: 5px;
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+footer {
+    padding: 10px;
+    font-size: 0.9em;
+    background: rgba(0, 0, 0, 0.2);
+}
