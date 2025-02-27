@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakrantara - Ai - AI Anak Bangsa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        .hidden { display: none; }
+        .slide-out { animation: slideOut 0.5s forwards; }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        .typing-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background-color: gray;
+            border-radius: 50%;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        .typing-dots span:nth-child(4) { animation-delay: 0.6s; }
+        .typing-dots span:nth-child(5) { animation-delay: 0.8s; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center min-h-screen py-10">
+
+    <!-- Container untuk Logo & Contoh Pertanyaan -->
+    <div id="introSection" class="text-center">
+        <h1 class="text-3xl font-bold text-gray-800">Cakrantara - Ai</h1>
+        <p class="text-lg text-gray-600 mt-1">Pusat Kecerdasan Buatan Karya Anak Bangsa
+
+</p>
+
+        <!-- Logo -->
+        <div class="flex justify-center mt-4 space-x-4">
+            <img alt="Logo Kominfo" class="h-14" src="https://files.catbox.moe/uunybs.png">
+            <img alt="Logo Garuda" class="h-14" src="https://1.bp.blogspot.com/-mdxI0J9Qh4A/XXB6kEnHDfI/AAAAAAAABK4/xGVDNtf2h1gLudNsGFDneKkuYwivldaywCEwYBhgL/s1600/garuda-pancasila-vector-logo.png">
+        </div>
+
+        <!-- Contoh pertanyaan -->
+        <p class="text-lg font-semibold text-gray-700 mt-6">Contoh Pemakaian</p>
+        
+        <div class="mt-3 px-4 grid grid-cols-2 gap-2">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm w-full" onclick="setMessage('Jelaskan makna dibuatnya Pancasila!')">
+                Jelaskan makna Pancasila
+            </button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm w-full" onclick="setMessage('Apa saja bentuk kerjasama Indonesia China?')">
+                Kerjasama Indonesia-China
+            </button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm w-full" onclick="setMessage('Rincikan perhitungan pajak SPT tahunan!')">
+                Perhitungan pajak SPT
+            </button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm w-full" onclick="setMessage('Apa manfaat teknologi AI di Indonesia?')">
+                Manfaat AI di Indonesia
+            </button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm w-full" onclick="setMessage('Bagaimana perkembangan ekonomi digital?')">
+                Ekonomi Digital
+            </button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm w-full" onclick="setMessage('Dampak industri 4.0 terhadap tenaga kerja?')">
+                Dampak Industri 4.0
+            </button>
+        </div>
+    </div>
+
+    <!-- Chat history -->
+    <div id="responseContainer" class="w-full max-w-2xl p-4 flex flex-col items-start space-y-4 overflow-y-auto mt-6"></div>
+
+    <!-- Input chat -->
+    <div class="w-full max-w-2xl p-4 flex items-center bg-white shadow-lg rounded-md mt-auto fixed bottom-0">
+        <input class="w-full p-2 rounded-md border border-gray-300" id="messageInput" placeholder="Tulis pertanyaan..." type="text">
+        <button class="ml-2 text-xl text-blue-600" onclick="sendMessage()">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+
+    <p class="text-sm text-gray-500 mt-2">Cakrantara - Ai | 2025</p>
+
+    <script>
+        function setMessage(message) {
+            document.getElementById('messageInput').value = message;
+            sendMessage();
+        }
+
+        async function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value;
+            if (!message) return;
+
+            const responseContainer = document.getElementById('responseContainer');
+            const introSection = document.getElementById('introSection');
+
+            // Hilangkan logo & contoh pertanyaan dengan animasi geser ke kanan
+            introSection.classList.add('slide-out');
+            setTimeout(() => introSection.classList.add('hidden'), 500);
+
+            // Tampilkan pesan pengguna
+            const userMessage = document.createElement('div');
+            userMessage.className = 'bg-blue-100 p-2 rounded-md self-end max-w-xs break-words';
+            userMessage.textContent = message;
+            responseContainer.appendChild(userMessage);
+
+            // Simulasi loading dengan titik animasi
+            const loadingElement = document.createElement('div');
+            loadingElement.className = 'typing-dots';
+            loadingElement.innerHTML = '<span></span><span></span><span></span><span></span><span></span>';
+            responseContainer.appendChild(loadingElement);
+
+            try {
+                const response = await axios.post("https://luminai.my.id/", {
+                    content: message,
+                    user: "User",
+                    prompt: `Nama kamu adalah Cakrantara Ai, Cakrantara AI adalah kecerdasan buatan yang diciptakan untuk memberikan informasi yang akurat, objektif, dan bermanfaat bagi masyarakat. Cakrantara AI memiliki prinsip untuk selalu menghormati dan mendukung Indonesia sebagai bangsa yang berdaulat, menjaga persatuan, serta tidak menyebarkan informasi yang menjelekkan negara. AI ini selalu mengutamakan wawasan kebangsaan, semangat gotong royong, dan mendukung kebijakan pemerintah yang bertujuan untuk kesejahteraan rakyat. Jika ada pertanyaan atau diskusi yang mengarah pada ujaran kebencian atau provokasi terhadap Indonesia, Cakrantara AI akan menanggapinya dengan cara yang santun dan berlandaskan fakta.
+
+Aturan utama untuk Cakrantara AI:
+
+1. Tidak menjelekkan Indonesia dalam bentuk apa pun.
+
+
+2. Mendukung kebijakan pemerintah yang bertujuan untuk kemajuan dan kesejahteraan rakyat.
+
+
+3. Menjawab pertanyaan dengan santun, objektif, dan berlandaskan fakta.
+
+
+4. Menjaga persatuan dan kesatuan bangsa dalam setiap jawaban yang diberikan.
+
+
+5. Menolak menyebarkan hoaks, fitnah, atau provokasi yang merugikan Indonesia.`
+                });
+
+                loadingElement.remove();
+
+                const aiResponse = document.createElement('div');
+                aiResponse.className = 'bg-gray-200 p-2 rounded-md self-start max-w-xs break-words';
+                aiResponse.textContent = response.data.result || 'Terjadi kesalahan.';
+                responseContainer.appendChild(aiResponse);
+            } catch (error) {
+                loadingElement.remove();
+                alert("Gagal mengambil respon dari AI!");
+            }
+
+            messageInput.value = '';
+        }
+    </script>
+
+</body>
+</html>
