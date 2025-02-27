@@ -3,38 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GatotkacAI</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Cakrantara AI - Nusantara</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>GatotkacAI</h1>
-        <p>Portal Kecerdasan Buatan Nusantara</p>
-    </header>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>CakrantaraAI - AI Nusantara</h1>
+        </header>
 
-    <main>
-        <div id="intro">
-            <img src="garuda.png" alt="Garuda" class="logo">
-            <img src="kominfo.png" alt="Kominfo" class="logo">
-            <div class="examples">
-                <button class="question" onclick="setPrompt('Jelaskan makna dibuatnya Pancasila!')">"Jelaskan makna dibuatnya Pancasila!"</button>
-                <button class="question" onclick="setPrompt('Apa saja bentuk kerja sama Indonesia-China?')">"Apa saja bentuk kerja sama Indonesia-China?"</button>
-                <button class="question" onclick="setPrompt('Rincikan perhitungan pajak SPT tahunan!')">"Rincikan perhitungan pajak SPT tahunan!"</button>
+        <!-- Section Welcome -->
+        <div class="welcome" id="welcome">
+            <h2>Selamat Datang di CakrantaraAI</h2>
+            <p>Portal Kecerdasan Buatan Anak Bangsa</p>
+            <div class="logos">
+                <img src="kominfo.png" alt="Kominfo">
+                <img src="garuda.png" alt="Garuda">
             </div>
         </div>
 
-        <div id="chat-container">
-            <div id="chatbox"></div>
-            <div id="input-container">
-                <input type="text" id="userInput" placeholder="Tulis pertanyaan...">
-                <button id="sendBtn" onclick="sendMessage()">➤</button>
+        <!-- Chat Container -->
+        <div class="chat-container">
+            <div class="chat-box" id="chatBox">
+                <div class="chat-message bot">Halo! Saya CakrantaraAI. Silakan bertanya.</div>
+            </div>
+
+            <!-- Input Chat -->
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Tulis pesan..." onfocus="scrollToBottom()">
+                <button onclick="sendMessage()">➤</button>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <p>GatotkacAI versi 0.1</p>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
