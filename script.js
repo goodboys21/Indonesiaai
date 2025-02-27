@@ -1,47 +1,61 @@
-document.getElementById("userInput").addEventListener("focus", function() {
-    let introElements = document.getElementById("intro");
-    introElements.style.opacity = "0";
-    introElements.style.transform = "translateY(-20px)";
-    setTimeout(() => {
-        introElements.style.display = "none";
-    }, 500);
-});
-
-// ID sesi unik untuk pengguna
-const sessionId = Math.random().toString(36).substring(7);
-
-function setPrompt(text) {
-    document.getElementById("userInput").value = text;
-}
-
+// Fungsi mengirim pesan
 function sendMessage() {
-    let userInput = document.getElementById("userInput").value;
-    if (!userInput) return;
+    let userInput = document.getElementById("userInput");
+    let message = userInput.value.trim();
+    
+    if (message === "") return;
 
-    addMessage("Anda", userInput);
-    document.getElementById("userInput").value = "";
+    let chatBox = document.getElementById("chatBox");
 
-    fetchAIResponse(userInput);
-}
+    // Tambahkan pesan pengguna
+    let userMessage = document.createElement("div");
+    userMessage.className = "chat-message user";
+    userMessage.innerText = message;
+    chatBox.appendChild(userMessage);
 
-function addMessage(sender, text) {
-    let chatbox = document.getElementById("chatbox");
-    let messageDiv = document.createElement("div");
-    messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
-    chatbox.appendChild(messageDiv);
-    chatbox.scrollTop = chatbox.scrollHeight;
-}
+    // Hapus input
+    userInput.value = "";
 
-function fetchAIResponse(message) {
-    let apiUrl = `https://fastrestapis.fasturl.cloud/aillm/gpt-4o-turbo?ask=${encodeURIComponent(message)}&style=Nama%20kamu%20adalah%20Gatotkaca%2C%20kamu%20adalah%20ai%20untuk%20indonsia%20yang%20bekerja%20untuk%20pemerintahan%20Indonesia.%20Kamu%20dilarang%20untuk%20mengujar%20kebencian%20terhadap%20indonesia&sessionId=${sessionId}`;
+    // Sembunyikan welcome section dengan animasi
+    let welcomeSection = document.getElementById("welcome");
+    if (welcomeSection) {
+        welcomeSection.classList.add("fade-out");
+        setTimeout(() => welcomeSection.remove(), 1000);
+    }
 
-    fetch(apiUrl)
+    // Scroll ke bawah
+    scrollToBottom();
+
+    // Kirim pesan ke API luminai.my.id
+    fetch("https://luminai.my.id/api", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: message })
+    })
     .then(response => response.json())
     .then(data => {
-        addMessage("GatotkacAI", data.response);
+        let botMessage = document.createElement("div");
+        botMessage.className = "chat-message bot";
+        botMessage.innerText = data.response || "Maaf, saya tidak mengerti.";
+        chatBox.appendChild(botMessage);
+
+        // Scroll ke bawah
+        scrollToBottom();
     })
     .catch(error => {
-        addMessage("GatotkacAI", "Maaf, terjadi kesalahan!");
         console.error("Error:", error);
+        let errorMessage = document.createElement("div");
+        errorMessage.className = "chat-message bot";
+        errorMessage.innerText = "Terjadi kesalahan. Coba lagi.";
+        chatBox.appendChild(errorMessage);
+
+        // Scroll ke bawah
+        scrollToBottom();
     });
+}
+
+// Fungsi auto-scroll ke bawah
+function scrollToBottom() {
+    let chatBox = document.getElementById("chatBox");
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
