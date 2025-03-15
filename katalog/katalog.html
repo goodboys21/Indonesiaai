@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Undangan Digital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .catalog {
+            padding: 50px 20px;
+        }
+
+        .catalog h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #1565C0; /* Biru */
+        }
+
+        .catalog p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .catalog-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid #1565C0; /* Biru */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .item p {
+            font-size: 18px;
+            margin: 10px 0 5px;
+            color: #1565C0; /* Biru */
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 16px;
+            color: #0D47A1; /* Biru lebih tua */
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1565C0; /* Biru */
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #0D47A1; /* Biru lebih tua */
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="catalog">
+        <h2>Katalog</h2>
+        <p>silahkan pilih tema undangan digital dengan desain elegan dan harga terbaik untuk menyempurnakan momen spesialmu!
+
+</p>
+
+        <div class="catalog-items">
+             <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 01">
+                <p>Spesial 01</p>
+                <div class="price">Rp 60.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 01" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial01" class="btn">Demo</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 02">
+                <p>Spesial 02</p>
+                <div class="price">Rp 75.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 02" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial02" class="btn">Demo</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 03">
+                <p>Spesial 03</p>
+                <div class="price">Rp 85.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 03" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial03" class="btn">Demo</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 04">
+                <p>Spesial 04</p>
+                <div class="price">Rp 90.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 04" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial04" class="btn">Demo</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 05">
+                <p>Spesial 05</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+            
+             <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 06">
+                <p>Spesial 06</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+            
+             <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 07">
+                <p>Spesial 07</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+            
+             <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 08">
+                <p>Spesial 08</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+            
+             <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 09">
+                <p>Spesial 09</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+            
+             <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 10">
+                <p>Spesial 10</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+            
+             <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 11">
+                <p>Spesial 11</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+            
+             <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 12">
+                <p>Spesial 12</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+            
+             <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 13">
+                <p>Spesial 13</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+            
+             <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 14">
+                <p>Spesial 14</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+            
+                 <div class="item">
+                <img src="https://img12.pixhost.to/images/945/576476816_imgtmp.jpg" alt="Spesial 15">
+                <p>Spesial 15</p>
+                <div class="price">Rp 100.000</div>
+                <div class="btn-group">
+                    <a href="https://wa.me/6281234567890?text=Halo, saya ingin memesan Spesial 05" class="btn">Pesan</a>
+                    <a href="https://contohwebsite.com/spesial05" class="btn">Demo</a>
+                </div>
+            </div>
+
+            <!-- Tambahin item lainnya di sini kalau ada -->
+        </div>
+    </div>
+    
+        <script>
+        const items = document.querySelectorAll(".item");
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, { threshold: 0.3 });
+
+        items.forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+
+</body>
+</html>
